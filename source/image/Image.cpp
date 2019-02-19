@@ -1,6 +1,6 @@
 //
 //  Image.cpp
-//  cpp_utils
+//  image
 //
 //  Created by Vladas Zakrevskis on 2/19/19.
 //  Copyright © 2019 VladasZ. All rights reserved.
@@ -9,6 +9,11 @@
 #include "SOIL.h"
 
 #include "Image.hpp"
+#include "ImageBinder.hpp"
+#include "ImageLoader.hpp"
+#include "ImageConfig.hpp"
+
+using namespace image;
 
 Image::Image(const std::string& path) {
 
@@ -28,13 +33,16 @@ Image::Image(const std::string& path) {
     _width    = static_cast<float>(width);
     _height   = static_cast<float>(height);
     _channels = static_cast<uint8_t>(channels);
+
+    _binder = config::loader()->create_binder_for(this);
 }
 
 Image::Image(void* data, float width, float height, uint8_t channels) : _data(data), _width(width), _height(height),  _channels(channels) {
-
+    _binder = config::loader()->create_binder_for(this);
 }
 
 Image::~Image() {
+    delete _binder;
     _free_data();
 }
 
@@ -56,6 +64,14 @@ uint8_t Image::channels() const {
 
 bool Image::is_monochrome() const {
     return _channels == 1;
+}
+
+void Image::bind() const {
+    _binder->bind();
+}
+
+void Image::unbind() const {
+    _binder->unbind();
 }
 
 void Image::_free_data() {
