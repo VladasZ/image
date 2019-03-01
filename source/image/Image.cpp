@@ -6,7 +6,9 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
+#if DESKTOP_BUILD
 #include "SOIL.h"
+#endif
 
 #include "Image.hpp"
 #include "ImageBinder.hpp"
@@ -20,6 +22,8 @@ Image::Image(const std::string& path) {
     int width;
     int height;
     int channels;
+
+    #if DESKTOP_BUILD
 
     _data = SOIL_load_image(path.c_str(),
                             &width,
@@ -35,6 +39,8 @@ Image::Image(const std::string& path) {
     _channels = static_cast<uint8_t>(channels);
 
     _binder = config::loader()->create_binder_for(this);
+
+    #endif
 }
 
 Image::Image(void* data, float width, float height, uint8_t channels) : _data(data), _width(width), _height(height),  _channels(channels) {

@@ -7,4 +7,6 @@ add_executable(${PROJECT_NAME} ${SOURCE})
 
 link_project(image)
 
-link_project_at_path(SOIL ${soil_path})
+if(${DESKTOP_BUILD})
+	link_project_at_path(SOIL ${soil_path})
+endif()
