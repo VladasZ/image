@@ -38,8 +38,7 @@ public:
     uint8_t channels     () const;
     bool    is_monochrome() const;
 
-    void bind  () const;
-    void unbind() const;
+    void bind() const;
 
 protected:
 

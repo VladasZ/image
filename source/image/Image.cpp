@@ -76,10 +76,6 @@ void Image::bind() const {
     _binder->bind();
 }
 
-void Image::unbind() const {
-    _binder->unbind();
-}
-
 void Image::_free_data() {
     if (_data) {
         free(_data);
