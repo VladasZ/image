@@ -19,11 +19,11 @@ using namespace image;
 
 Image::Image(const std::string& path) {
 
+    #if DESKTOP_BUILD
+    
     int width;
     int height;
     int channels;
-
-    #if DESKTOP_BUILD
 
     _data = SOIL_load_image(path.c_str(),
                             &width,
