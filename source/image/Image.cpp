@@ -6,6 +6,8 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
+#include <type_traits>
+
 #if DESKTOP_BUILD
 #include "SOIL.h"
 #endif
@@ -15,9 +17,10 @@
 #include "ImageLoader.hpp"
 #include "ImageConfig.hpp"
 
+using namespace std;
 using namespace image;
 
-Image::Image(const std::string& path) {
+Image::Image(const string& path) {
 
     #if DESKTOP_BUILD
     
@@ -40,6 +43,8 @@ Image::Image(const std::string& path) {
 
     _binder = config::loader()->create_binder_for(this);
 
+	SOIL_free_image_data(static_cast<unsigned char*>(_data));
+
     #endif
 }
 
@@ -49,7 +54,6 @@ Image::Image(void* data, float width, float height, uint8_t channels) : _data(da
 
 Image::~Image() {
     delete _binder;
-    _free_data();
 }
 
 float Image::width() const {
@@ -74,11 +78,4 @@ bool Image::is_monochrome() const {
 
 void Image::bind() const {
     _binder->bind();
-}
-
-void Image::_free_data() {
-    if (_data) {
-        free(_data);
-        _data = nullptr;
-    }
 }
