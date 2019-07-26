@@ -15,7 +15,7 @@ public:
 
     virtual ~ImageBinder();
 
-    virtual void bind () const = 0;
+    virtual void bind() const = 0;
 };
 
 }

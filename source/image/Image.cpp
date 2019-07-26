@@ -6,11 +6,7 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
-#include <type_traits>
-
-#if DESKTOP_BUILD
 #include "SOIL.h"
-#endif
 
 #include "Image.hpp"
 #include "ImageBinder.hpp"
@@ -22,8 +18,6 @@ using namespace image;
 
 Image::Image(const string& path) {
 
-    #if DESKTOP_BUILD
-    
     int width;
     int height;
     int channels;
@@ -45,7 +39,6 @@ Image::Image(const string& path) {
 
 	SOIL_free_image_data(static_cast<unsigned char*>(_data));
 
-    #endif
 }
 
 Image::Image(void* data, float width, float height, uint8_t channels) : _data(data), _width(width), _height(height),  _channels(channels) {

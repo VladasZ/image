@@ -19,7 +19,9 @@ void config::set_loader(ImageLoader* loader) {
 }
 
 ImageLoader* config::loader() {
+#ifdef DEBUG
     if (_loader == nullptr)
         throw std::string() + "image::config::loader is not set up";
-    return  _loader;
+#endif
+    return _loader;
 }
