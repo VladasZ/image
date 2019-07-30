@@ -6,7 +6,9 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
+#ifdef DESKTOP_BUILD
 #include "SOIL.h"
+#endif
 
 #include "Image.hpp"
 #include "ImageBinder.hpp"
@@ -17,6 +19,8 @@ using namespace std;
 using namespace image;
 
 Image::Image(const string& path) {
+
+#ifdef DESKTOP_BUILD
 
     int width;
     int height;
@@ -38,6 +42,8 @@ Image::Image(const string& path) {
     _binder = config::loader()->create_binder_for(this);
 
 	SOIL_free_image_data(static_cast<unsigned char*>(_data));
+
+#endif
 
 }
 
