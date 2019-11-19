@@ -6,7 +6,9 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
+#ifndef NO_SOIL
 #include "SOIL2/SOIL2.h"
+#endif
 
 #include <iostream>
 using namespace std;
@@ -20,6 +22,8 @@ using namespace std;
 using namespace image;
 
 Image::Image(const string& path) {
+    
+    #ifndef NO_SOIL
 
     int width;
     int height;
@@ -44,8 +48,10 @@ Image::Image(const string& path) {
     cout << path << " " << _width << " " << _height << endl;
 #endif
 
-	SOIL_free_image_data(static_cast<unsigned char*>(_data));
+    SOIL_free_image_data(static_cast<unsigned char*>(_data));
 
+#endif
+    
 }
 
 Image::Image(void* data, float width, float height, uint8_t channels) : _data(data), _width(width), _height(height),  _channels(channels) {
@@ -77,5 +83,8 @@ bool Image::is_monochrome() const {
 }
 
 void Image::bind() const {
+#ifndef NO_SOIL
     _binder->bind();
+#endif
 }
+
