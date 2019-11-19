@@ -6,7 +6,7 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
-#include "SOIL.h"
+#include "SOIL2/SOIL2.h"
 
 #include <iostream>
 using namespace std;

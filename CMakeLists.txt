@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 project(image)
 
+conan_basic_setup()
+
 add_subdirectory(source/image)
 
 if(${DESKTOP_BUILD})
