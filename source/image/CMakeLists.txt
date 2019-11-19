@@ -5,4 +5,6 @@ project(image)
 add_catalog_recursive(${PROJECT_SOURCE_DIR} /source SOURCE)
 add_library(${PROJECT_NAME} ${SOURCE})
 
+if(${NEEDS_CONAN})
 conan_target_link_libraries(${PROJECT_NAME})
+endif()

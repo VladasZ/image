@@ -7,4 +7,6 @@ add_executable(${PROJECT_NAME} ${SOURCE})
 
 link_project(image)
 
+if(${NEEDS_CONAN})
 conan_target_link_libraries(${PROJECT_NAME})
+endif()
