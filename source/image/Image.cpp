@@ -22,8 +22,8 @@ using namespace std;
 using namespace image;
 
 Image::Image(const string& path) {
-    
-    #ifndef NO_SOIL
+
+#ifndef NO_SOIL
 
     int width;
     int height;

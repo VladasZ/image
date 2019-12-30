@@ -1,8 +1,10 @@
 
-
-#include <iostream>
-using namespace std;
+#include "Log.hpp"
+#include "Image.hpp"
 
 int main() {
-  cout << "hello" << endl;
+    Log("hello");
+
+    auto image = new Image("");
+    return 0;
 }
