@@ -11,9 +11,7 @@
 #include <cstdint>
 #include <string>
 
-namespace image {
-class ImageBinder;
-}
+#include "ImageBinder.hpp"
 
 class Image {
 
@@ -25,6 +23,8 @@ protected:
     uint8_t _channels;
 
     image::ImageBinder* _binder;
+
+    std::string _path;
 
 public:
 

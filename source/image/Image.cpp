@@ -21,7 +21,7 @@ using namespace std;
 using namespace std;
 using namespace image;
 
-Image::Image(const string& path) {
+Image::Image(const string& path) : _path(path) {
 
 #ifndef NO_SOIL
 
