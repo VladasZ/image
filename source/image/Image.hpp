@@ -28,6 +28,7 @@ protected:
 
 public:
 
+    explicit Image() = default;
     explicit Image(const std::string& path);
     explicit Image(void* data, float width, float height, uint8_t channels);
     virtual ~Image();
