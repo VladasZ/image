@@ -6,7 +6,7 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
-#ifndef NO_SOIL
+#ifdef USING_SOIL
 #include "SOIL2/SOIL2.h"
 #endif
 
@@ -23,7 +23,7 @@ using namespace image;
 
 Image::Image(const string& path) : _path(path) {
 
-#ifndef NO_SOIL
+#ifdef USING_SOIL
 
     int width;
     int height;
@@ -83,7 +83,7 @@ bool Image::is_monochrome() const {
 }
 
 void Image::bind() const {
-#ifndef NO_SOIL
+#ifdef USING_SOIL
     _binder->bind();
 #endif
 }
