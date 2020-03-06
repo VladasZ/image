@@ -35,8 +35,9 @@ Image::Image(const string& path) : _path(path) {
                             &channels,
                             SOIL_LOAD_RGBA);
 
-    if (_data == nullptr)
+    if (_data == nullptr) {
         throw std::string() + "Failed to load image: " + path;
+    }
 
     _width    = static_cast<float>(width);
     _height   = static_cast<float>(height);
