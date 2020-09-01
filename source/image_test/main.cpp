@@ -3,7 +3,7 @@
 #include "Image.hpp"
 
 int main() {
-    Log("hello");
+    Log << "hello";
 
     auto image = new Image("");
     return 0;
