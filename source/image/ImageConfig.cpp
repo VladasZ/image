@@ -7,6 +7,7 @@
 //
 
 #include <string>
+#include <stdexcept>
 
 #include "ImageConfig.hpp"
 
@@ -20,8 +21,9 @@ void config::set_loader(ImageLoader* loader) {
 
 ImageLoader* config::loader() {
 #ifdef DEBUG
-    if (_loader == nullptr)
-        throw std::string() + "image::config::loader is not set up";
+    if (_loader == nullptr) {
+        throw std::runtime_error("image::config::loader is not set up");
+    }
 #endif
     return _loader;
 }
