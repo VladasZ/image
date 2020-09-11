@@ -6,15 +6,9 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
-#ifdef USING_SOIL
-#include "SOIL2/SOIL2.h"
-#endif
-
-#include <iostream>
-using namespace std;
+#include <SoilInclude.hpp>
 
 #include "Image.hpp"
-#include "ImageBinder.hpp"
 #include "ImageLoader.hpp"
 #include "ImageConfig.hpp"
 
