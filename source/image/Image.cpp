@@ -6,6 +6,7 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
+#include <stdexcept>
 #include <SoilInclude.hpp>
 
 #include "Image.hpp"
