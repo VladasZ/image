@@ -16,6 +16,7 @@
 using namespace std;
 using namespace image;
 
+
 Image::Image(const string& path) : _path(path) {
 
 #ifdef USING_SOIL
@@ -79,8 +80,5 @@ bool Image::is_monochrome() const {
 }
 
 void Image::bind() const {
-#ifdef USING_SOIL
     _binder->bind();
-#endif
 }
-
