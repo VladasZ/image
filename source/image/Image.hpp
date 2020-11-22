@@ -17,12 +17,14 @@ class Image {
 
 protected:
 
-    void*   _data;
+    bool _ok = false;
+
+    void*   _data = nullptr;
     float   _width;
     float   _height;
     uint8_t _channels;
 
-    image::ImageBinder* _binder;
+    image::ImageBinder* _binder = nullptr;
 
     std::string _path;
 
@@ -41,7 +43,4 @@ public:
 
     void bind() const;
 
-protected:
-
-    void _free_data();
 };

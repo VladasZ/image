@@ -6,9 +6,9 @@
 //  Copyright © 2019 VladasZ. All rights reserved.
 //
 
-#include <string>
 #include <stdexcept>
 
+#include "Log.hpp"
 #include "ImageConfig.hpp"
 
 using namespace image;
@@ -22,7 +22,7 @@ void config::set_loader(ImageLoader* loader) {
 ImageLoader* config::loader() {
 #ifdef DEBUG
     if (_loader == nullptr) {
-        throw std::runtime_error("image::config::loader is not set up");
+        Fatal("image::config::loader is not set up");
     }
 #endif
     return _loader;

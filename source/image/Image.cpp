@@ -47,12 +47,15 @@ Image::Image(const string& path) : _path(path) {
 
     SOIL_free_image_data(static_cast<unsigned char*>(_data));
 
+    _ok = true;
+
 #endif
     
 }
 
 Image::Image(void* data, float width, float height, uint8_t channels) : _data(data), _width(width), _height(height),  _channels(channels) {
     _binder = config::loader()->create_binder_for(this);
+    _ok = true;
 }
 
 Image::~Image() {
@@ -80,5 +83,6 @@ bool Image::is_monochrome() const {
 }
 
 void Image::bind() const {
+    if (!_ok) return;
     _binder->bind();
 }
