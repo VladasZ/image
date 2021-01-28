@@ -8,10 +8,11 @@
 
 #pragma once
 
-#include <cstdint>
 #include <string>
+#include <cstdint>
 
 #include "ImageBinder.hpp"
+
 
 class Image {
 

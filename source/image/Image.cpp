@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <SoilInclude.hpp>
 
+#include "Log.hpp"
 #include "Image.hpp"
 #include "ImageLoader.hpp"
 #include "ImageConfig.hpp"
@@ -32,7 +33,7 @@ Image::Image(const string& path) : _path(path) {
                             SOIL_LOAD_RGBA);
 
     if (_data == nullptr) {
-        throw std::runtime_error("Failed to load image: " + path);
+        Fatal("Failed to load image: " + path);
     }
 
     _width    = static_cast<float>(width);
