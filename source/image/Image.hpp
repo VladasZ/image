@@ -11,10 +11,12 @@
 #include <string>
 #include <cstdint>
 
+#include "NonCopyable.hpp"
 #include "ImageBinder.hpp"
 
 
-class Image {
+class Image// : cu::NonCopyable
+        {
 
 protected:
 
@@ -43,5 +45,8 @@ public:
     bool    is_monochrome() const;
 
     void bind() const;
+
+    std::string path() const;
+    void set_path(const std::string&);
 
 };

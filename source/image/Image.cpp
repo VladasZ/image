@@ -87,3 +87,11 @@ void Image::bind() const {
     if (!_ok) return;
     _binder->bind();
 }
+
+string Image::path() const {
+    return _path;
+}
+
+void Image::set_path(const string& path) {
+    _path = path;
+}

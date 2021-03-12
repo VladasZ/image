@@ -2,3 +2,4 @@
 /dep_build
 .idea/
 cmake-build-debug/
+.DS_Store
