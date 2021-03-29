@@ -41,7 +41,7 @@ Image::Image(const string& path) : _path(path) {
     _channels = static_cast<uint8_t>(channels);
 
     _binder = config::loader()->create_binder_for(this);
-    
+
 #ifdef IMAGES_LOADING_OUTPUT
     cout << path << " " << _width << " " << _height << endl;
 #endif
@@ -51,7 +51,7 @@ Image::Image(const string& path) : _path(path) {
     _ok = true;
 
 #endif
-    
+
 }
 
 Image::Image(void* data, float width, float height, uint8_t channels) : _data(data), _width(width), _height(height),  _channels(channels) {
@@ -94,4 +94,11 @@ string Image::path() const {
 
 void Image::set_path(const string& path) {
     _path = path;
+}
+
+std::string Image::to_string() const {
+    return VarString(_width) +
+           VarString(_height) +
+           VarString(_channels) +
+           VarString(_binder->id());
 }

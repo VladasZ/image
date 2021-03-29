@@ -49,4 +49,6 @@ public:
     std::string path() const;
     void set_path(const std::string&);
 
+    std::string to_string() const;
+
 };
